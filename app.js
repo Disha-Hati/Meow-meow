@@ -20,10 +20,11 @@ function errorHandler(error){
 function clickHandler(){ 
     var input=tarea1.value; //value property sets or returns the value of the value attribute of a text field
 
+    //calling server for processing
     fetch(getTranslationURL(input))
         .then(response=>response.json())
         .then(json=>{
-            var translatedText=json.contents.translate;
+            var translatedText=json.contents.translated;
             tarea2.innerText=translatedText;
         })
         .catch(errorHandler)  // catch statement lets you handle the error.
